@@ -1,16 +1,24 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ContentRoutingModule } from './content-routing.module';
+import { MaterialModule } from '../material/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent 
+    HomeComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
-    ContentRoutingModule
+    ContentRoutingModule,
+    MaterialModule,
+    MatTableModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ContentModule { }
