@@ -18,6 +18,7 @@ export class ProductService {
 
   getProduct(dataProduct: any) {
     let params = new HttpParams()
+    .set("search", dataProduct.search)
     .set("currentPage", dataProduct.currentPage)
     .set("perPage", dataProduct.perPage)
     return this.http.get(this.API_URL + `product/getProduct?${params}`).pipe(

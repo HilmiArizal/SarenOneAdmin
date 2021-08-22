@@ -8,6 +8,7 @@ import { ContentComponent } from './content/content.component';
 import { ContentModule } from './content/content.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentModule } from './component/component.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MaterialModule,
     ContentModule,
-    HttpClientModule
+    ComponentModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
