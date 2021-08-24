@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
     let dataProduct: any = new Object();
     dataProduct.search = "";
     dataProduct.currentPage = 0;
-    dataProduct.perPage = 5;
+    dataProduct.perPage = 3;
     await this.productService.getProduct(dataProduct).subscribe((res: any) => {
       this.data = res.data;
       this.pagePerPage = res.per_page;

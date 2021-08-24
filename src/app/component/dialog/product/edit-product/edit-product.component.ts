@@ -56,12 +56,12 @@ export class EditProductComponent implements OnInit {
     this.previewImage = null;
   }
 
-  cancelEditProduct(){
+  cancelEditProduct() {
     this.dialogRef.close(null);
   }
 
   editProduct() {
-    if(this.changeImage){
+    if (this.changeImage) {
       let dataProduct: any = new Object();
       dataProduct.id = this.formProduct.get('_id')?.value;
       dataProduct.data = {
@@ -70,10 +70,10 @@ export class EditProductComponent implements OnInit {
         weight: this.formProduct.get('weight')?.value,
         description: this.formProduct.get('description')?.value,
       }
-      dataProduct.image = this.changeImage ? this.image : this.formProduct.get('image')?.value;
+      dataProduct.image = this.image;
       this.dialogRef.close(dataProduct);
-    }else{
-      alert('Image tidak boleh kosong!'); 
+    } else {
+      alert('Image tidak boleh kosong!');
     }
   }
 

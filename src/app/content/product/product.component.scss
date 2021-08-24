@@ -10,9 +10,9 @@
     width: 100%;
   }
 
-  .btn-circle{
+  .btn-circle {
     position: absolute;
-    right:0;
+    right: 0;
     top: -35px;
     border-radius: 100%;
     display: flex;
@@ -22,7 +22,7 @@
     width: 40px;
   }
 
-  .table-responsive{
+  .table-responsive {
     overflow-x: auto !important;
     display: block;
     width: 100%;
@@ -37,46 +37,65 @@
         border-collapse: collapse;
         margin: 0px;
       }
-      
+
       th {
         border-left: 2px solid #111111;
         font-size: 14px;
         color: #111;
         background-color: #d1d1d1;
       }
-      
-      mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+
+      mat-row,
+      mat-header-row,
+      mat-footer-row,
+      th.mat-header-cell,
+      td.mat-cell,
+      td.mat-footer-cell {
         text-align: center;
         border: 1px solid rgb(112, 112, 112);
       }
-      
+
       td {
         font-size: 12px;
+        width: 10%;
+        height: 18vh;
       }
-      
+
+      th.mat-header-cell:first-of-type,
+      td.mat-cell:first-of-type,
+      td.mat-footer-cell:first-of-type {
+        padding-left: 0;
+      }
+
+      th.mat-header-cell:last-of-type,
+      td.mat-cell:last-of-type,
+      td.mat-footer-cell:last-of-type {
+        padding-right: 0;
+      }
+
       .image-product {
-        width: 50px;
+        width: 80px;
         margin: auto;
       }
-      
+
       .action-product {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        
+
         .icon-action {
           cursor: pointer;
           transition: 0.3s ease;
         }
-        
+
         .icon-action:hover {
           opacity: 0.7;
         }
-        
+
         .icon-action:nth-child(1) {
           color: #000080;
         }
-        
+
         .icon-action:nth-child(2) {
           color: #800000;
         }

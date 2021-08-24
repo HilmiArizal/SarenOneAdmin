@@ -15,7 +15,7 @@
         <mat-icon (click)="onRemoveImage()">close</mat-icon>
       </label>
     </div>
-    <ng-template #emptyImage >
+    <ng-template #emptyImage>
       <label class="label-no-image mt-3 mb-3">
         <img src="assets/image/no-image.png" alt="no-img">
         <input type="file" accept="image/*" (change)="onChangeImage($event)">
@@ -31,16 +31,18 @@
     <mat-form-field appearance="fill">
       <mat-label>Price Product</mat-label>
       <mat-select formControlName="price">
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+        <mat-option value="30000">Rp. 30.000,-</mat-option>
+        <mat-option value="35000">Rp. 35.000,-</mat-option>
+        <mat-option value="40000">Rp. 40.000,-</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Weight Product</mat-label>
       <mat-select formControlName="weight">
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+        <mat-option value="500">500gr</mat-option>
+        <mat-option value="900">900gr</mat-option>
+        <mat-option value="1000">1000gr</mat-option>
       </mat-select>
     </mat-form-field>
 
