@@ -26,4 +26,28 @@ export class ProductService {
     )
   };
 
+  addProduct(dataProduct: any){
+    let formData = new FormData();
+    formData.append('data', JSON.stringify(dataProduct.data));
+    formData.append('image', (dataProduct.image));
+    return this.http.post(this.API_URL + `product/addProduct`, formData).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+  
+  editProduct(dataProduct: any){
+    let formData = new FormData();
+    formData.append('data', JSON.stringify(dataProduct.data));
+    formData.append('image', (dataProduct.image));
+    return this.http.put(this.API_URL + `product/editProduct?id=${dataProduct.id}`, formData).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
+  deleteProduct(dataProduct: any){
+    return this.http.delete(this.API_URL + `product/deleteProduct/${dataProduct.id}`).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
 }

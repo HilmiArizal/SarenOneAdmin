@@ -5,62 +5,87 @@
   }
 
   .mat-form-field {
+    position: relative;
     font-size: 12px;
     width: 100%;
   }
 
   .btn-circle{
+    position: absolute;
+    right:0;
+    top: -35px;
     border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
   }
 
-  table {
+  .table-responsive{
+    overflow-x: auto !important;
+    display: block;
     width: 100%;
-    text-align: center;
-
-    th {
-      font-size: 14px;
-      color: #111;
-    }
-
-    mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    table {
+      width: 100%;
       text-align: center;
-      border: 1px solid rgb(112, 112, 112);
-    }
-
-    td {
-      font-size: 12px;
-    }
-
-    .image-product {
-      width: 50px;
-      margin: auto;
-    }
-
-    .action-product {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-
-      .icon-action {
-        cursor: pointer;
-        transition: 0.3s ease;
+      .mat-table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        margin: 0px;
       }
-
-      .icon-action:hover {
-        opacity: 0.7;
+      
+      th {
+        border-left: 2px solid #111111;
+        font-size: 14px;
+        color: #111;
+        background-color: #d1d1d1;
       }
-
-      .icon-action:nth-child(1) {
-        color: #000080;
+      
+      mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+        text-align: center;
+        border: 1px solid rgb(112, 112, 112);
       }
-
-      .icon-action:nth-child(2) {
-        color: #800000;
+      
+      td {
+        font-size: 12px;
+      }
+      
+      .image-product {
+        width: 50px;
+        margin: auto;
+      }
+      
+      .action-product {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        .icon-action {
+          cursor: pointer;
+          transition: 0.3s ease;
+        }
+        
+        .icon-action:hover {
+          opacity: 0.7;
+        }
+        
+        .icon-action:nth-child(1) {
+          color: #000080;
+        }
+        
+        .icon-action:nth-child(2) {
+          color: #800000;
+        }
       }
     }
   }
 
   .mat-paginator {
     border: 1px solid rgb(112, 112, 112);
+    background-color: #d1d1d1;
   }
 }

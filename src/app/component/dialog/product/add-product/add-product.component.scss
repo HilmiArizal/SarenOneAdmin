@@ -1,7 +1,86 @@
-.add-product{
-    .title-add-product{
-        text-align: center;
-        font-size: 24px;
-        font-weight: 500;
-    };
+.add-product {
+  .icon-close{
+    cursor: pointer;
+    float: right;
+    transition: 0.3s ease;
+}
+  .title-add-product {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .label-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    .mat-icon {
+      background-color: #111;
+      color: #fff;
+      border-radius: 100%;
+      position: absolute;
+      right: -10px;
+      transition: all 0.3s ease;
+    }
+
+    .mat-icon:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .label-no-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 100%;
+    background-color: rgb(194, 194, 194);
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    .mat-icon {
+      font-size: 40px;
+      position: absolute;
+      top: 110px;
+      left: 110px;
+      color: rgb(99, 99, 99);
+    }
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  button {
+    display: flex;
+    margin: auto;
+  }
+}
+
+::ng-deep {
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    width: 100%;
+    font-size: 14px;
+    background-color: #fff;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    width: 100%;
+    font-size: 14px;
+    background-color: #fff;
+  }
 }

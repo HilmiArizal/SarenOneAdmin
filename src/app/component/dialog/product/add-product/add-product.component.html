@@ -1,7 +1,56 @@
-<div class="add-product">
+<div class="add-product" mat-dialog-content>
 
-    <div class="title-add-product">
-        Add Product
+  <div class="icon-close" (click)="cancelAddProduct()">
+    <mat-icon>close</mat-icon>
+  </div>
+
+  <div class="title-add-product">
+    Add Product
+  </div>
+
+  <form [formGroup]="formProduct">
+    <div *ngIf="changeImage; else emptyImage" class="mt-3 mb-3">
+      <label class="label-image">
+        <img [src]="previewImage" alt="no-img">
+        <mat-icon (click)="onRemoveImage()">close</mat-icon>
+      </label>
     </div>
+    <ng-template #emptyImage >
+      <label class="label-no-image mt-3 mb-3">
+        <img src="assets/image/no-image.png" alt="no-img">
+        <input type="file" accept="image/*" (change)="onChangeImage($event)">
+        <mat-icon>photo_camera</mat-icon>
+      </label>
+    </ng-template>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name Product</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price Product</mat-label>
+      <mat-select formControlName="price">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Weight Product</mat-label>
+      <mat-select formControlName="weight">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description Product</mat-label>
+      <textarea matInput rows="5" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button class="btn btn-success btn-sm" (click)="addProduct()">Save Now</button>
+
+  </form>
 
 </div>

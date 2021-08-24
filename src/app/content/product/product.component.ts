@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddProductComponent } from 'src/app/component/dialog/product/add-product/add-product.component';
 import { DeleteProductComponent } from 'src/app/component/dialog/product/delete-product/delete-product.component';
@@ -23,11 +24,12 @@ export class ProductComponent implements OnInit {
   pagePerPage: any;
   pageCurrentPage: any;
   pageTotalData: any;
-  imagePath!: any;
+  imagePath: any;
 
   constructor(
     private productService: ProductService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
     this.API_URL = environment.API_URL.Local;
   };
@@ -80,26 +82,59 @@ export class ProductComponent implements OnInit {
   manageProduct(dataProduct: any, type: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = dataProduct;
-    dialogConfig.minWidth = '70vh';
     dialogConfig.disableClose = true;
+    const snackBarConfig = new MatSnackBarConfig();
+    snackBarConfig.duration = 5000;
+    snackBarConfig.panelClass = ['red-snackbar']
     switch (type) {
       case 'add':
+        dialogConfig.minWidth = "50vw";
         const dialogAdd = this.dialog.open(
           AddProductComponent,
           dialogConfig
         );
+        dialogAdd.afterClosed().subscribe((results) => {
+          if (results.data) {
+            this.productService.addProduct(results).subscribe((res: any) => {
+              if (res['message'] === "Add Data Successful") {
+                this.getProduct();
+                this.snackBar.open("New Product Has Been Added", "", snackBarConfig);
+              }
+            })
+          }
+        })
         break
       case 'edit':
+        dialogConfig.minWidth = "50vw";
         const dialogEdit = this.dialog.open(
           EditProductComponent,
           dialogConfig
         );
+        dialogEdit.afterClosed().subscribe((results) => {
+          if(results){
+            this.productService.editProduct(results).subscribe((res: any) => {
+              this.getProduct();
+              this.snackBar.open("Product Has Been Updated", "", snackBarConfig);
+            })
+          }
+        })
         break;
       case 'delete':
+        dialogConfig.minWidth = "30vw";
         const dialogDelete = this.dialog.open(
           DeleteProductComponent,
           dialogConfig
         );
+        dialogDelete.afterClosed().subscribe((results) => {
+          if (results) {
+            this.productService.deleteProduct(results).subscribe((res: any) => {
+              if (res['message'] === "Delete Data Successful") {
+                this.getProduct();
+                this.snackBar.open("Product Has Been Deleted", "", snackBarConfig);
+              }
+            })
+          }
+        })
         break;
       default:
         break;

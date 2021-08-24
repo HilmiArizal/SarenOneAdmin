@@ -6,3 +6,13 @@ export interface Product {
     weight: string;
     description: string;
 }
+
+export interface Price{
+    price: string | number;
+    priceValue: string;
+}
+
+export interface Weight{
+    weight: string | number;
+    weightValue: string;
+}

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EditProductComponent } from './dialog/product/edit-product/edit-product.component';
 import { AddProductComponent } from './dialog/product/add-product/add-product.component';
 import { DeleteProductComponent } from './dialog/product/delete-product/delete-product.component';
+import { MaterialModule } from '../material/material';
 
 
 
@@ -13,7 +14,8 @@ import { DeleteProductComponent } from './dialog/product/delete-product/delete-p
     EditProductComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ]
 })
 export class ComponentModule { }
