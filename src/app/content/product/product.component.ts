@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AddProductComponent } from 'src/app/component/dialog/product/add-product/add-product.component';
 import { DeleteProductComponent } from 'src/app/component/dialog/product/delete-product/delete-product.component';
 import { EditProductComponent } from 'src/app/component/dialog/product/edit-product/edit-product.component';
-import { Other, PaginateData } from 'src/app/interface/other';
 import { Product } from 'src/app/interface/product';
 import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
