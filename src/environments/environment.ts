@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL:{
-    Local: 'http://localhost:8000/'
+    Local: 'https://sarenone-api.herokuapp.com/'
   }
 };
 
