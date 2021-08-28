@@ -6,12 +6,14 @@ import { MaterialModule } from '../material/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { ProductComponent } from './product/product.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

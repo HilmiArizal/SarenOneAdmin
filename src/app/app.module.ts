@@ -9,6 +9,7 @@ import { ContentModule } from './content/content.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentModule } from './component/component.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ComponentModule } from './component/component.module';
     AppRoutingModule,
     MaterialModule,
     ContentModule,
+    AuthModule,
     ComponentModule,
     HttpClientModule,
   ],

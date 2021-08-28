@@ -1,0 +1,28 @@
+<div class="login">
+
+  <div class="card">
+    <div class="title">LOGIN</div>
+    <form [formGroup]="formLogin">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input [type]="visibility ? 'text' : 'password'" autocomplete="on" matInput formControlName="password">
+        <mat-icon matSuffix (click)="onChangeVisibility()">{{visibility ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin" color="primary">It's me!</mat-checkbox>
+      </section>
+
+      <button class="btn btn-success btn-sm" (click)="onLogin()">
+        Submit
+      </button>
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,45 @@
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .card{
+        font-size: 12px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 2em;
+        height: 24rem;
+        width: 24rem;
+        display: flex;
+        justify-content: space-evenly;
+        .title{
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #008080;
+        }
+        .mat-form-field{
+            width: 100%;
+            .mat-icon{
+                cursor: pointer;
+            }
+        }
+        .mat-checkbox{
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+::ng-deep{
+    .mat-form-field-appearance-fill .mat-form-field-flex{
+        padding: 0 !important;
+        background-color: #fff;
+    }
+}
