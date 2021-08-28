@@ -2,32 +2,34 @@
 
   <div class="card">
     <div class="title">REGISTER</div>
-    <form>
+    <form [formGroup]="formRegister">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput>
+        <input matInput formControlName="email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput>
+        <input matInput formControlName="username">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput>
+        <input [type]="visibilityPassword ? 'text' : 'password'" autocomplete="on" matInput formControlName="password">
+        <mat-icon matSuffix (click)="onChangeVisibility('p')">{{visibilityPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Confirm Password</mat-label>
-        <input matInput>
+        <input [type]="visibilityConfirmPassword ? 'text' : 'password'" autocomplete="on" matInput formControlName="confirmPassword">
+        <mat-icon matSuffix (click)="onChangeVisibility('cp')">{{visibilityConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
       <section class="example-section">
         <mat-checkbox class="example-margin" color="primary">It's me!</mat-checkbox>
       </section>
 
-      <button class="btn btn-success btn-sm">
+      <button class="btn btn-success btn-sm" (click)="onRegister()">
         Submit
       </button>
 

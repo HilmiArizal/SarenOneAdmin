@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentModule } from './component/component.module';
 import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './service/auth.guard';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { AuthModule } from './auth/auth.module';
     ComponentModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

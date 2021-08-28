@@ -16,8 +16,14 @@ export class AuthService {
     this.API_URL = environment.API_URL.Local;
   }
 
-  login(dataLogin: any){
+  login(dataLogin: any) {
     return this.http.post(this.API_URL + 'auth/login', dataLogin).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
+  register(dataRegister: any) {
+    return this.http.post(this.API_URL + 'auth/register', dataRegister).pipe(
       tap((res) => console.log(res))
     )
   }
