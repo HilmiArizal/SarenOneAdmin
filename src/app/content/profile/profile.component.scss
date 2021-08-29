@@ -1,0 +1,63 @@
+.profile {
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  form {
+    font-size: 14px;
+
+    .image {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+
+      .image-preview {
+        cursor: pointer;
+        width: 150px;
+        height: 150px;
+
+        img {
+          border-radius: 100%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      .mat-icon {
+        font-size: 36px;
+        position: absolute;
+        right: 25px;
+        bottom: 10px;
+        color: #888888;
+      }
+      .icon{
+          font-size: 24px;
+          cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #888888;
+        transition: 0.3s ease;
+      }
+      .icon:hover{
+          opacity: 0.5;
+      }
+    }
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}

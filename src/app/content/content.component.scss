@@ -1,48 +1,60 @@
 .sidenav-container {
   height: 100%;
+
   .logo {
     display: flex;
     align-items: center;
+
     .image-logo {
       width: 50px;
       height: 50px;
       margin-right: 5px;
     }
+
     .name-logo {
       justify-content: center;
       display: flex;
       flex-direction: column;
+
       span:nth-child(1) {
         font-size: 16px;
       }
+
       span:nth-child(2) {
         font-size: 12px;
       }
     }
   }
+
   .avatar {
     width: 100px;
     height: 100px;
     margin: auto;
     display: flex;
     align-items: center;
+
     img {
       border-radius: 100%;
       width: 100%;
+      height: 100px;
+      object-fit: cover;
     }
   }
+
   .name {
     text-align: center;
     letter-spacing: 0.5px;
     font-size: 18px;
     font-weight: 500;
   }
+
   .role {
     text-align: center;
     letter-spacing: 0.5px;
     font-size: 14px;
   }
-  .mat-icon{
+
+  .mat-icon {
     margin-right: 10px;
   }
 }
@@ -60,6 +72,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: #d1d1d1;
 }
 
 .mat-toolbar,
@@ -72,10 +85,28 @@
   line-height: normal;
 }
 
-.mat-toolbar.mat-primary {
-  background-color: #d1d1d1;
+.mat-sidenav-content {
+  min-height: 100vh;
+
+  .material-icons {
+    color: #008080;
+  }
 }
 
-.mat-sidenav-content{
-  min-height: 100vh;
+.btn-person {
+  position: absolute !important;
+  right: 20px;
+
+  .mat-icon {
+    color: #008080;
+  }
+}
+
+::ng-deep .mat-menu-panel {
+  min-width: 250px !important;
+
+  .mat-menu-content:not(:empty) {
+    padding: 0;
+
+  }
 }

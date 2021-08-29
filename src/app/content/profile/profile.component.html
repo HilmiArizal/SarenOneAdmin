@@ -1,0 +1,74 @@
+<div class="profile">
+
+  <div class="title">Setting Profile</div>
+
+  <form [formGroup]="formProfile">
+    <div *ngIf="!changeImage; else previewImg">
+      <div class="image">
+        <label for="image">
+          <div class="image-preview">
+            <img [src]="user.img ? API_URL + user.img : 'assets/image/avatar.png'" alt="img-avatar">
+          </div>
+          <input id="image" type="file" (change)="onChangeImage($event)">
+          <mat-icon>photo_camera</mat-icon>
+        </label>
+      </div>
+    </div>
+    <ng-template #previewImg>
+      <div class="image">
+        <label for="image">
+          <div class="image-preview">
+            <img [src]="previewImage" alt="img-avatar">
+          </div>
+          <input id="image" type="file">
+          <mat-icon class="icon" (click)="onRemoveImage()">close</mat-icon>
+        </label>
+      </div>
+    </ng-template>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput value="{{user.username}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput value="{{user.email}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <span matPrefix>+62 &nbsp;</span>
+      <div *ngIf="!user.phonenumber; else emptyPhone">
+        <input type="number" matInput formControlName="phonenumber">
+      </div>
+      <ng-template #emptyPhone>
+        <input type="number" matInput value="{{user.phonenumber}}" (change)="onChangePhoneNumber($event)">
+      </ng-template>
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nickname</mat-label>
+      <div *ngIf="!user.nickname; else emptyNickName">
+        <input matInput value="{{user.nickname ? 'user.nickname' : ''}}" formControlName="nickname">
+      </div>
+      <ng-template #emptyNickName>
+        <input type="text" matInput value="{{user.nickname}}" (change)="onChangeNickname($event)">
+      </ng-template>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Division</mat-label>
+      <div *ngIf="!user.division; else emptyDivision">
+        <input matInput value="{{user.division ? 'user.division' : ''}}" formControlName="division">
+      </div>
+      <ng-template #emptyDivision>
+        <input type="text" matInput value="{{user.division}}" (change)="onChangeDivision($event)">
+      </ng-template>
+    </mat-form-field>
+
+    <button class="btn btn-success btn-sm mt-2" (click)="onChangeProfile()">Save Profile</button>
+  </form>
+
+</div>
