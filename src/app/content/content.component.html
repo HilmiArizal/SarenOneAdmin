@@ -17,7 +17,7 @@
       <div class="avatar">
         <img [src]="user.img ? API_URL + user.img : 'assets/image/avatar.png' " alt="img-avatar">
       </div>
-      <div class="name">{{user.username}}</div>
+      <div class="name">{{user.nickname}}</div>
       <div class="role">{{user.division ? user.division : '-'}}</div>
       <hr />
       <mat-nav-list>
@@ -46,7 +46,7 @@
             <mat-icon>manage_accounts</mat-icon>
             <span>Change Profile</span>
           </button>
-          <button mat-menu-item routerLink="/admin/profile">
+          <button mat-menu-item routerLink="/admin/change-password">
             <mat-icon>lock</mat-icon>
             <span>Change Password</span>
           </button>

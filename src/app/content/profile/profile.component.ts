@@ -31,8 +31,6 @@ export class ProfileComponent implements OnInit {
       nickname: new FormControl('', Validators.required),
       division: new FormControl('', Validators.required),
     })
-    // this.formProfileOld = this.user;
-    // this.formProfile = this.oldDataUser(this.formProfileOld);
   }
 
   ngOnInit(): void {
@@ -44,18 +42,6 @@ export class ProfileComponent implements OnInit {
     const user = JSON.parse(currentUser!);
     this.user = user;
   }
-
-  // oldDataUser(dataUser: any) {
-  //   const orderFormGroup: FormGroup = new FormGroup({});
-  //   for (const item in dataUser) {
-  //     if (dataUser.hasOwnProperty(item)) {
-  //       const el = dataUser[item];
-  //       const control: FormControl = new FormControl(el, Validators.required);
-  //       orderFormGroup.addControl(item, control);
-  //     }
-  //   }
-  //   return orderFormGroup;
-  // };
 
   onChangeImage(e: any) {
     const reader = new FileReader();

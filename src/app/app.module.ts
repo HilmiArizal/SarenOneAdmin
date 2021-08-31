@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentModule } from './component/component.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './service/auth.guard';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AuthGuard } from './service/auth.guard';
     ContentComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

@@ -25,4 +25,10 @@ export class UserService {
     )
   }
 
+  changePassword(id: any, dataPassword: any) {
+    return this.http.put(this.API_URL + `user/changePassword/${id}`, dataPassword).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
 }

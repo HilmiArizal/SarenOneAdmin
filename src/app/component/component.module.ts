@@ -4,6 +4,9 @@ import { EditProductComponent } from './dialog/product/edit-product/edit-product
 import { AddProductComponent } from './dialog/product/add-product/add-product.component';
 import { DeleteProductComponent } from './dialog/product/delete-product/delete-product.component';
 import { MaterialModule } from '../material/material';
+import { EditTeamComponent } from './dialog/team/edit-team/edit-team.component';
+import { DeleteTeamComponent } from './dialog/team/delete-team/delete-team.component';
+import { AddTeamComponent } from './dialog/team/add-team/add-team.component';
 
 
 
@@ -11,7 +14,10 @@ import { MaterialModule } from '../material/material';
   declarations: [
     AddProductComponent,
     DeleteProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditTeamComponent,
+    DeleteTeamComponent,
+    AddTeamComponent
   ],
   imports: [
     CommonModule,

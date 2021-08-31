@@ -1,1 +1,52 @@
-<p>team works!</p>
+<div class="team">
+
+  <div class="title">Team Management</div>
+
+  <div class="button">
+    <button class="btn btn-sm btn-success" (click)="manageTeam('', 'add')">
+      <mat-icon>add</mat-icon> <span>Add Team</span>
+    </button>
+  </div>
+
+  <div class="card" *ngFor="let item of dataTeam">
+    <div class="icon">
+      <mat-icon [matMenuTriggerFor]="belowMenu">more_vert</mat-icon>
+      <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item (click)="manageTeam(item, 'edit')">Edit Team</button>
+        <button mat-menu-item (click)="manageTeam(item, 'delete')">Delete Team</button>
+      </mat-menu>
+    </div>
+    <div class="row">
+      <div class="col-md-2 left">
+        <div class="image">
+          <img [src]="API_URL + item.image" alt="img-team" width="100%">
+        </div>
+      </div>
+      <div class="col-md-10 right">
+        <div class="description">
+          <div class="row">
+            <div class="col-md-2">Fullname</div>
+            <div class="col-md-10">: {{item.fullname}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Nickname</div>
+            <div class="col-md-10">: {{item.nickname}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Phonenumber</div>
+            <div class="col-md-10">: +62 - {{item.phonenumber}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Division</div>
+            <div class="col-md-10">: {{item.division}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Motto</div>
+            <div class="col-md-10">: {{item.motto}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

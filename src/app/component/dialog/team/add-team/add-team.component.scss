@@ -1,0 +1,53 @@
+.add-team {
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  form {
+    .mat-form-field {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .image {
+      position: relative;
+      cursor: pointer;
+      margin: 10px auto;
+      width: 150px;
+      height: 150px;
+      background-color: #d1d1d1;
+      border-radius: 100%;
+
+
+      img {
+          border-radius: 100%;
+        width: 100%;
+        height: 100%;
+      }
+
+      input {
+        display: none;
+      }
+
+      .icon-camera {
+          font-size: 32px;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+      }
+
+      .icon-close {
+          font-size: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff !important;
+}

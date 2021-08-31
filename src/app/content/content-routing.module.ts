@@ -6,6 +6,7 @@ import { ProductComponent } from './product/product.component';
 import { TeamComponent } from './team/team.component';
 import { AuthGuard } from '../service/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
     canActivate: [AuthGuard]
   },
 ]
