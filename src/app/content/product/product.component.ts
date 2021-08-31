@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
   };
 
   ngOnInit(): void {

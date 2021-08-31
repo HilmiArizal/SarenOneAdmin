@@ -19,7 +19,7 @@ export class ContentComponent implements OnInit {
     private router: Router,
     private breakpointObserver: BreakpointObserver
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
   }
 
   ngOnInit(): void {

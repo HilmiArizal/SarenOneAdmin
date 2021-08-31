@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
     this.formProfile = new FormGroup({
       phonenumber: new FormControl('', Validators.required),
       nickname: new FormControl('', Validators.required),

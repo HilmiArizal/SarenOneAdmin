@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit {
     private teamService: TeamService,
     private dialog: MatDialog
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
   }
 
   ngOnInit(): void {
