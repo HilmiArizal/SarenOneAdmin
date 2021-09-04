@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -13,11 +13,15 @@ export class TeamService {
   constructor(
     private http: HttpClient
   ) {
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   }
 
-  getTeam() {
-    return this.http.get(this.API_URL + `team/getTeam`).pipe(
+  getTeam(dataTeam: any) {
+    let params = new HttpParams()
+      .set("search", dataTeam.search)
+      .set("currentPage", dataTeam.currentPage)
+      .set("perPage", dataTeam.perPage)
+    return this.http.get(this.API_URL + `team/getListTeam?${params}`).pipe(
       tap((res) => console.log(res))
     )
   };

@@ -14,7 +14,9 @@ import { environment } from 'src/environments/environment';
 export class TeamComponent implements OnInit {
 
   public dataTeam: any;
-  public data: any;
+  public totalData: any;
+  public currentPage: any;
+  public perPage: any;
   public availableData: boolean = false;
   public API_URL: string;
 
@@ -22,7 +24,7 @@ export class TeamComponent implements OnInit {
     private teamService: TeamService,
     private dialog: MatDialog
   ) {
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   }
 
   ngOnInit(): void {
@@ -30,8 +32,53 @@ export class TeamComponent implements OnInit {
   }
 
   getTeam() {
-    this.teamService.getTeam().subscribe((res: any) => {
+    let dataTeam: any = new Object();
+    dataTeam.search = "";
+    dataTeam.currentPage = 0;
+    dataTeam.perPage = 3;
+    this.teamService.getTeam(dataTeam).subscribe((res: any) => {
       this.dataTeam = res.data;
+      this.totalData = res.total_data;
+      this.currentPage = res.current_page;
+      this.perPage = res.per_page;
+      if (this.dataTeam.length === 0) {
+        this.availableData = false;
+      } else {
+        this.availableData = true;
+      }
+    })
+  }
+
+  getListTeam(e: any) {
+    this.currentPage = e.pageIndex;
+    this.perPage = e.pageSize;
+    let dataTeam: any = new Object();
+    dataTeam.search = "";
+    dataTeam.currentPage = this.currentPage;
+    dataTeam.perPage = this.perPage;
+    this.teamService.getTeam(dataTeam).subscribe((res: any) => {
+      this.dataTeam = res.data;
+      this.totalData = res.total_data;
+      this.currentPage = res.current_page;
+      this.perPage = res.per_page;
+      if (this.dataTeam.length === 0) {
+        this.availableData = false;
+      } else {
+        this.availableData = true;
+      }
+    })
+  }
+
+  getSearchTeam(e: any){
+    let dataTeam: any = new Object();
+    dataTeam.search = e.target.value.trim();
+    dataTeam.currentPage = this.currentPage;
+    dataTeam.perPage = this.perPage;
+    this.teamService.getTeam(dataTeam).subscribe((res: any) => {
+      this.dataTeam = res.data;
+      this.totalData = res.total_data;
+      this.currentPage = res.current_page;
+      this.perPage = res.per_page;
       if (this.dataTeam.length === 0) {
         this.availableData = false;
       } else {
@@ -67,7 +114,7 @@ export class TeamComponent implements OnInit {
           dialogConfig
         )
         dialogEdit.afterClosed().subscribe((results) => {
-          if(results){
+          if (results) {
             this.teamService.editTeam(results.id, results.dataTeam, results.image).subscribe((res) => {
               this.getTeam();
             })
@@ -81,7 +128,7 @@ export class TeamComponent implements OnInit {
           dialogConfig
         )
         dialogDelete.afterClosed().subscribe((results) => {
-          if(results){
+          if (results) {
             this.teamService.deleteTeam(results).subscribe((res) => {
               this.getTeam();
             })

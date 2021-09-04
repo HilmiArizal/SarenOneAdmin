@@ -5,6 +5,11 @@
     margin-bottom: 20px;
   }
 
+  .mat-form-field{
+    width: 100%;
+    font-size: 12px;
+  }
+
   .button {
     display: flex;
     justify-content: flex-end;
@@ -59,4 +64,8 @@
       }
     }
   }
+}
+
+::ng-deep .mat-paginator{
+  background-color: #fafafa;
 }
