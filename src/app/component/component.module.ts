@@ -7,6 +7,9 @@ import { MaterialModule } from '../material/material';
 import { EditTeamComponent } from './dialog/team/edit-team/edit-team.component';
 import { DeleteTeamComponent } from './dialog/team/delete-team/delete-team.component';
 import { AddTeamComponent } from './dialog/team/add-team/add-team.component';
+import { AddStoreComponent } from './dialog/store/add-store/add-store.component';
+import { EditStoreComponent } from './dialog/store/edit-store/edit-store.component';
+import { DeleteStoreComponent } from './dialog/store/delete-store/delete-store.component';
 
 
 
@@ -17,7 +20,10 @@ import { AddTeamComponent } from './dialog/team/add-team/add-team.component';
     EditProductComponent,
     EditTeamComponent,
     DeleteTeamComponent,
-    AddTeamComponent
+    AddTeamComponent,
+    AddStoreComponent,
+    EditStoreComponent,
+    DeleteStoreComponent
   ],
   imports: [
     CommonModule,

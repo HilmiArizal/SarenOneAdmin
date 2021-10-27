@@ -1,0 +1,46 @@
+<div class="body-store">
+
+  <div class="title">Manage Store</div>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Filter By Name</mat-label>
+    <input matInput placeholder="Ex. Hilmi" #input (keyup)="getSearchStore($event)">
+    <button class="btn btn-success btn-sm btn-circle mt-3" (click)="manageStore('', 'add')">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 table-responsive">
+    <table mat-table [dataSource]="data">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="action-product">
+            <div class="icon-action" (click)="manageStore(element, 'edit')">
+              <mat-icon>settings</mat-icon>
+            </div>
+            <div class="icon-action" (click)="manageStore(element, 'delete')">
+              <mat-icon>delete</mat-icon>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSize]="pagePerPage" [pageIndex]="pageCurrentPage" [length]="pageTotalData"
+      [pageSizeOptions]="[3, 6, 9, 12]" (page)="getPageStore($event)" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+
+</div>

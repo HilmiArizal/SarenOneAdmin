@@ -45,6 +45,10 @@ export class AddTeamComponent implements OnInit {
     this.changeImage = false;
   }
 
+  onClose(){
+    this.dialogRef.close(null);
+  }
+
   onAddTeam() {
     let data = this.formTeam.value;
     let image = this.image;

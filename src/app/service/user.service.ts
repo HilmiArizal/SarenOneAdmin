@@ -13,7 +13,7 @@ export class UserService {
   constructor(
     private http: HttpClient
   ) {
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   }
 
   changeProfile(id: any, dataProfile: any, img: any) {

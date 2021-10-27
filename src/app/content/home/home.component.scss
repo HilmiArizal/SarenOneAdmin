@@ -1,0 +1,15 @@
+.home{
+    .logo{
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .image{
+            width: 500px;
+            height: 500px;
+            img{
+                opacity: 0.3;
+            }
+        }
+    }
+}

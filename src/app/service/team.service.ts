@@ -13,7 +13,7 @@ export class TeamService {
   constructor(
     private http: HttpClient
   ) {
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   }
 
   getTeam(dataTeam: any) {

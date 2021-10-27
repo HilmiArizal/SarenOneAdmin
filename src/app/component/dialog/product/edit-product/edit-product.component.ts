@@ -21,7 +21,7 @@ export class EditProductComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<EditProductComponent>, @Inject(MAT_DIALOG_DATA) public dataProduct: any
   ) {
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
     this.formProductOld = dataProduct;
     this.formProduct = this.oldDataProduct(this.formProductOld);
   }

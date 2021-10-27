@@ -1,0 +1,16 @@
+<div class="body-add-store">
+
+  <div class="title">Tambah Toko</div>
+
+  <div class="form-add-store">
+    <form [formGroup]="formStore" (ngSubmit)="onAddStore()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Toko</mat-label>
+        <input matInput placeholder="Nama Toko" formControlName="name">
+      </mat-form-field>
+
+      <button class="btn btn-success">Save</button>
+    </form>
+  </div>
+
+</div>

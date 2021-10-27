@@ -1,0 +1,43 @@
+.body-store{
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+    
+      .mat-form-field {
+        position: relative;
+        font-size: 12px;
+        width: 100%;
+      }
+    
+      .btn-circle {
+        position: absolute;
+        right: 0;
+        top: -35px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+      }
+
+    .table-responsive {
+        overflow-x: auto !important;
+        display: block;
+        width: 100%;
+        table {
+          width: 100%;
+          .mat-table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            display: table;
+            border-collapse: collapse;
+            margin: 0px;
+          }
+        }
+    }
+
+}

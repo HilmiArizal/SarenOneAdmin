@@ -24,7 +24,7 @@ export class EditTeamComponent implements OnInit {
   ) {
     this.formTeamOld = dataTeam;
     this.formTeam = this.oldDataTeamOld(this.formTeamOld);
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   }
 
   ngOnInit(): void {

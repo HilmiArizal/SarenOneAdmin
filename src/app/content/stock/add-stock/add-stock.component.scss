@@ -1,0 +1,19 @@
+.body-add-stock{
+
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+    .form-add-stock{
+        .mat-form-field{
+            width: 100%;
+            font-size: 14px;
+        }
+    }
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+    background: none;
+}

@@ -7,6 +7,7 @@ import { TeamComponent } from './team/team.component';
 import { AuthGuard } from '../service/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { StoreComponent } from './store/store.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,16 @@ const routes: Routes = [
     component: ChangePasswordComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'stock',
+    loadChildren: () => import('./stock/stock.module').then(module => module.StockModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'store',
+    component: StoreComponent,
+    canActivate: [AuthGuard]
+  }
 ]
 
 

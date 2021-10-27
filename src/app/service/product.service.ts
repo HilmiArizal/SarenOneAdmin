@@ -12,7 +12,7 @@ export class ProductService {
   private API_URL: string;
 
   constructor(private http: HttpClient) { 
-    this.API_URL = environment.API_URL.Server;
+    this.API_URL = environment.API_URL.Local;
   };
 
   getProduct(dataProduct: any) {

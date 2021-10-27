@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   public visibilityConfirmPassword: Boolean = false;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.formRegister = new FormGroup({
       email: new FormControl('', Validators.required),
@@ -39,7 +41,9 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onRegister() {
+  onRegister(formRegister: any) {
+    // e.preventDefault();
+
     let dataRegister = this.formRegister.value;
     let newDataRegister: any = new Object();
     newDataRegister.email = dataRegister.email;
@@ -48,6 +52,9 @@ export class RegisterComponent implements OnInit {
     if (dataRegister.password !== dataRegister.confirmPassword) return alert("Password not same!")
     this.authService.register(newDataRegister).subscribe((res) => {
       console.log(res);
+      
+      this.router.navigate(['/login'])
+      this.formRegister.reset();
     })
   }
 

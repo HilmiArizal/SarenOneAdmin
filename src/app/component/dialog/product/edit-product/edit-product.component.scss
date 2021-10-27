@@ -29,6 +29,10 @@
       height: 150px;
       margin: auto;
       cursor: pointer;
+
+      img{
+        border-radius: 100%;
+      }
   
       input {
         display: none;
@@ -58,6 +62,10 @@
       border-radius: 100%;
       background-color: rgb(194, 194, 194);
       cursor: pointer;
+
+      img{
+        border-radius: 100%;
+      }
   
       input {
         display: none;

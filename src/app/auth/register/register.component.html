@@ -2,7 +2,7 @@
 
   <div class="card">
     <div class="title">REGISTER</div>
-    <form [formGroup]="formRegister">
+    <form [formGroup]="formRegister" (ngSubmit)="onRegister(formRegister)">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
@@ -29,7 +29,7 @@
         <mat-checkbox class="example-margin" color="primary">It's me!</mat-checkbox>
       </section>
 
-      <button class="btn btn-success btn-sm" (click)="onRegister()">
+      <button class="btn btn-success btn-sm">
         Submit
       </button>
 

@@ -10,18 +10,18 @@
 
   <form [formGroup]="formProduct">
     <div class="row row-image">
-      <div class="col-md">
+      <!-- <div class="col-md">
         <div class="mt-3 mb-3">
           <label class="label-image">
             <img [src]="API_URL + dataProduct.image" alt="no-img">
           </label>
         </div>
-      </div>
-      <div class="col-md">
+      </div> -->
+      <!-- <div class="col-md">
         <mat-icon>double_arrow</mat-icon>
         <mat-icon>double_arrow</mat-icon>
         <mat-icon>double_arrow</mat-icon>
-      </div>
+      </div> -->
       <div class="col-md">
         <div *ngIf="changeImage; else emptyImage" class="mt-3 mb-3">
           <label class="label-image">
@@ -31,7 +31,7 @@
         </div>
         <ng-template #emptyImage>
           <label class="label-no-image mt-3 mb-3">
-            <img src="assets/image/no-image.png" alt="no-img">
+            <img [src]="API_URL + dataProduct.image" alt="no-img">
             <input type="file" accept="image/*" (change)="onChangeImage($event)">
             <mat-icon>photo_camera</mat-icon>
           </label>

@@ -9,6 +9,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { TeamComponent } from './team/team.component';
+import { StockModule } from './stock/stock.module';
+import { StoreComponent } from './store/store.component';
 
 
 @NgModule({
@@ -18,13 +20,14 @@ import { TeamComponent } from './team/team.component';
     TeamComponent,
     NotFoundComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    StoreComponent,
   ],
   imports: [
     CommonModule,
     ContentRoutingModule,
     MaterialModule,
-    MatTableModule,
+    StockModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

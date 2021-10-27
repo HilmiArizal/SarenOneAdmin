@@ -1,0 +1,32 @@
+<div class="body-add-stock">
+
+  <div class="title">Tambah Stok Produk</div>
+
+  <div class="form-add-stock">
+    <form [formGroup]="formStock" (ngSubmit)="addStock()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nama Toko</mat-label>
+        <mat-select name="products" formControlName="productname">
+          <mat-option *ngFor="let item of products" [value]="item.value">
+            {{item.productname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nama Produk</mat-label>
+        <mat-select name="products" formControlName="productname">
+          <mat-option *ngFor="let item of products" [value]="item.value">
+            {{item.productname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Kuantitas</mat-label>
+        <input type="number" matInput placeholder="0" formControlName="quantity">
+      </mat-form-field>
+    </form>
+  </div>
+
+</div>

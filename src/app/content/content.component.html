@@ -6,7 +6,7 @@
       <mat-toolbar>
         <div class="logo">
           <div class="image-logo">
-            <img src="assets/image/logo.png" alt="img-logo" width="100%">
+            <img src="assets/image/sarenone-logo.png" alt="img-logo" width="100%">
           </div>
           <div class="name-logo">
             <span>CV. Heaven Sentosa</span>
@@ -21,15 +21,52 @@
       <div class="role">{{user.division ? user.division : '-'}}</div>
       <hr />
       <mat-nav-list>
+        
         <a mat-list-item routerLink="/admin">
           <mat-icon>home</mat-icon> <span> Home</span>
         </a>
-        <a mat-list-item routerLink="/admin/product">
-          <mat-icon>restaurant_menu</mat-icon> <span> Product</span>
-        </a>
-        <a mat-list-item routerLink="/admin/team">
+
+        <div *ngIf="user.role === 'sales'; else sales">
+          <a mat-list-item routerLink="/admin/store">
+            <mat-icon>storefront</mat-icon> <span> Store</span>
+          </a>
+        </div>
+        <ng-template #sales>
+          <a mat-list-item routerLink="/admin/product">
+            <mat-icon>restaurant_menu</mat-icon> <span> Product</span>
+          </a>
+        </ng-template>
+
+        <div *ngIf="user.role === 'sales'; else sales">
+          <div mat-list-item>
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+              <mat-tree-node *matTreeNodeDef="let node">
+                <button mat-icon-button disabled></button>
+                <a mat-list-item (click)="stockNavigate(node.route)">
+                  <span>{{node.name}}</span>
+                </a>
+              </mat-tree-node>
+              <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                <mat-icon>restaurant_menu</mat-icon> <span> {{node.name}}</span>
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+                </button>
+              </mat-tree-node>
+            </mat-tree>
+          </div>
+        </div>
+        <ng-template #sales>
+          <a mat-list-item routerLink="/admin/product">
+            <mat-icon>restaurant_menu</mat-icon> <span> Product</span>
+          </a>
+        </ng-template>
+
+        <a mat-list-item routerLink="/admin/team" *ngIf="user.role !== 'sales'">
           <mat-icon>groups</mat-icon> <span> Team</span>
         </a>
+
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -50,7 +87,7 @@
             <mat-icon>lock</mat-icon>
             <span>Change Password</span>
           </button>
-          <button mat-menu-item (click)="onLogout()"> 
+          <button mat-menu-item (click)="onLogout()">
             <mat-icon>logout</mat-icon>
             <span>Logout</span>
           </button>

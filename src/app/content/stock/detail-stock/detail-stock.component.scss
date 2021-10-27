@@ -1,0 +1,28 @@
+.body-detail-stock {
+
+  .title {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .table-responsive {
+    overflow-x: auto !important;
+    display: block;
+    width: 100%;
+
+    table {
+      width: 100%;
+
+      .mat-table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        margin: 0px;
+      }
+    }
+  }
+
+}
