@@ -90,7 +90,8 @@ export class StoreComponent implements OnInit {
           if (results) {
             this.storeService.addStore(results).subscribe((res: any) => {
               if (res['message'] === "Add Data Successful") {
-                this.snackBar.open("New Product Has Been Added", "", snackBarConfig);
+                this.snackBar.open("New Store Has Been Added", "", snackBarConfig);
+                this.getStore();
               }
             })
           }
@@ -103,12 +104,12 @@ export class StoreComponent implements OnInit {
           dialogConfig
         );
         dialogEdit.afterClosed().subscribe((results) => {
-          // if(results){
-          //   this.productService.editProduct(results).subscribe((res: any) => {
-          //     this.getProduct();
-          //     this.snackBar.open("Product Has Been Updated", "", snackBarConfig);
-          //   })
-          // }
+          if(results){
+            this.storeService.editStore(results).subscribe((res: any) => {
+              this.snackBar.open("Store Has Been Updated", "", snackBarConfig);
+              this.getStore();
+            })
+          }
         })
         break;
       case 'delete':
@@ -118,14 +119,14 @@ export class StoreComponent implements OnInit {
           dialogConfig
         );
         dialogDelete.afterClosed().subscribe((results) => {
-          // if (results) {
-          //   this.productService.deleteProduct(results).subscribe((res: any) => {
-          //     if (res['message'] === "Delete Data Successful") {
-          //       this.getProduct();
-          //       this.snackBar.open("Product Has Been Deleted", "", snackBarConfig);
-          //     }
-          //   })
-          // }
+          if (results) {
+            this.storeService.deleteStore(results).subscribe((res: any) => {
+              if (res['message'] === "Delete Data Successful") {
+                this.getStore();
+                this.snackBar.open("Store Has Been Deleted", "", snackBarConfig);
+              }
+            })
+          }
         })
         break;
       default:

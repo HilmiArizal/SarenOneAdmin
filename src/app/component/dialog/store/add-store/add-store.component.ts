@@ -22,7 +22,7 @@ export class AddStoreComponent implements OnInit {
   ngOnInit(): void {
   };
 
-  cancelAddStore(){
+  onCancelAddStore(){
     this.dialogRef.close(null);
   }
 

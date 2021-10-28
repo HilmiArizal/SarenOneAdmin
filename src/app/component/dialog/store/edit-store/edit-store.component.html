@@ -1,1 +1,17 @@
-<p>edit-store works!</p>
+<div class="body-edit-store">
+
+    <div class="title">Ubah Toko</div>
+  
+    <div class="form-edit-store">
+      <form [formGroup]="formStore" (ngSubmit)="onEditStore()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Toko</mat-label>
+          <input matInput placeholder="Nama Toko" formControlName="name">
+        </mat-form-field>
+  
+        <button class="btn btn-success">Save</button>
+      </form>
+    </div>
+  
+  </div>
+  

@@ -31,4 +31,16 @@ export class UserService {
     )
   }
 
+  getAllUser(){
+    return this.http.get(this.API_URL + `user/getAllUser`).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
+  getUser(dataUser: any){
+    return this.http.get(this.API_URL + `user/getUser?search=${dataUser}`).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
 }

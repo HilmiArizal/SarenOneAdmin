@@ -26,18 +26,18 @@
           <mat-icon>home</mat-icon> <span> Home</span>
         </a>
 
-        <div *ngIf="user.role === 'sales'; else sales">
+        <div *ngIf="user.role === 4; else withoutSales1">
           <a mat-list-item routerLink="/admin/store">
             <mat-icon>storefront</mat-icon> <span> Store</span>
           </a>
         </div>
-        <ng-template #sales>
-          <a mat-list-item routerLink="/admin/product">
-            <mat-icon>restaurant_menu</mat-icon> <span> Product</span>
+        <ng-template #withoutSales1>
+          <a mat-list-item routerLink="/admin/user">
+            <mat-icon>manage_accounts</mat-icon> <span> User</span>
           </a>
         </ng-template>
 
-        <div *ngIf="user.role === 'sales'; else sales">
+        <div *ngIf="user.role === 4; else withoutSales2">
           <div mat-list-item>
             <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
               <mat-tree-node *matTreeNodeDef="let node">
@@ -57,7 +57,7 @@
             </mat-tree>
           </div>
         </div>
-        <ng-template #sales>
+        <ng-template #withoutSales2>
           <a mat-list-item routerLink="/admin/product">
             <mat-icon>restaurant_menu</mat-icon> <span> Product</span>
           </a>

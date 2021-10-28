@@ -1,1 +1,20 @@
-<p>delete-store works!</p>
+<div class="delete-store">
+
+    <div class="title">
+        Delete Store
+    </div>
+
+    <div class="mt-3 text-center">
+        Are you sure for delete {{dataStore.name}} ?
+    </div>
+
+    <div class="d-flex justify-content-evenly delete-confirm">
+        <div (click)="onCancelDeleteStore()">
+            <mat-icon>close</mat-icon>
+        </div>
+        <div (click)="onDeleteStore(dataStore)">
+            <mat-icon>check</mat-icon>
+        </div>
+    </div>
+
+</div>

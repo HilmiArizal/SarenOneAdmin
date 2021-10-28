@@ -30,4 +30,16 @@ export class StoreService {
     )
   }
 
+  editStore(dataStore: any){
+    return this.http.put(this.API_URL + `store/editStore?id=${dataStore._id}`, dataStore).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
+  deleteStore(dataStore: any){
+    return this.http.delete(this.API_URL + `store/deleteStore/${dataStore}`).pipe(
+      tap((res) => console.log(res))
+    )
+  }
+
 }

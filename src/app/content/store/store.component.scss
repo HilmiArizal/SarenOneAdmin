@@ -37,7 +37,35 @@
             border-collapse: collapse;
             margin: 0px;
           }
+
+          th, td{
+            text-align: center;
+          }
         }
+        
+    }
+
+    .action-store {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .icon-action {
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .icon-action:hover {
+        opacity: 0.7;
+      }
+
+      .icon-action:nth-child(1) {
+        color: #000080;
+      }
+
+      .icon-action:nth-child(2) {
+        color: #800000;
+      }
     }
 
 }

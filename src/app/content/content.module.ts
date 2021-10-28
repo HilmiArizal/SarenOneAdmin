@@ -11,6 +11,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { TeamComponent } from './team/team.component';
 import { StockModule } from './stock/stock.module';
 import { StoreComponent } from './store/store.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { StoreComponent } from './store/store.component';
     ProfileComponent,
     ChangePasswordComponent,
     StoreComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,
