@@ -21,7 +21,7 @@
       <div class="role">{{user.division ? user.division : '-'}}</div>
       <hr />
       <mat-nav-list>
-        
+
         <a mat-list-item routerLink="/admin">
           <mat-icon>home</mat-icon> <span> Home</span>
         </a>
@@ -63,9 +63,28 @@
           </a>
         </ng-template>
 
-        <a mat-list-item routerLink="/admin/team" *ngIf="user.role !== 'sales'">
+        <a mat-list-item routerLink="/admin/team" *ngIf="user.role !== 4">
           <mat-icon>groups</mat-icon> <span> Team</span>
         </a>
+
+          <div mat-list-item>
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+              <mat-tree-node *matTreeNodeDef="let node">
+                <button mat-icon-button disabled></button>
+                <a mat-list-item (click)="stockNavigate(node.route)">
+                  <span>{{node.name}}</span>
+                </a>
+              </mat-tree-node>
+              <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                <mat-icon>restaurant_menu</mat-icon> <span> {{node.name}}</span>
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+                </button>
+              </mat-tree-node>
+            </mat-tree>
+          </div>
 
       </mat-nav-list>
     </mat-sidenav>
@@ -76,7 +95,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <button mat-button [matMenuTriggerFor]="beforeMenu" class="btn-person">
-          <mat-icon>person</mat-icon>
+          <mat-icon>person</mat-icon> <span>Hi, {{user.username}}</span>
         </button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
           <button mat-menu-item routerLink="/admin/profile">

@@ -5,15 +5,6 @@
   <div class="form-add-stock">
     <form [formGroup]="formStock" (ngSubmit)="addStock()">
       <mat-form-field appearance="fill">
-        <mat-label>Nama Toko</mat-label>
-        <mat-select name="products" formControlName="productname">
-          <mat-option *ngFor="let item of products" [value]="item.value">
-            {{item.productname}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
         <mat-label>Nama Produk</mat-label>
         <mat-select name="products" formControlName="productname">
           <mat-option *ngFor="let item of products" [value]="item.value">
@@ -21,6 +12,15 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Kuantias</mat-label>
+        <mat-select name="products" formControlName="productname">
+          <mat-option *ngFor="let item of products" [value]="item.value">
+            {{item.productname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Kuantitas</mat-label>

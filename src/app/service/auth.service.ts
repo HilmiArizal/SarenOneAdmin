@@ -13,7 +13,7 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
   }
 
   login(dataLogin: any) {

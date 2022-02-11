@@ -58,13 +58,28 @@
       </ng-template>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Division</mat-label>
       <div *ngIf="!user.division; else emptyDivision">
         <input matInput value="{{user.division ? 'user.division' : ''}}" formControlName="division">
       </div>
       <ng-template #emptyDivision>
         <input type="text" matInput value="{{user.division}}" (change)="onChangeDivision($event)">
+      </ng-template>
+    </mat-form-field> -->
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <div *ngIf="!user.division; else emptyDivision">
+        <mat-label>Division</mat-label>
+        <mat-select name="division" matInput formControlName="division" >
+          <mat-option *ngFor="let item of divisions" [value]="item.value">
+            {{item.division}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <ng-template #emptyDivision>
+        <input type="text" matInput value="{{user.division}}" readonly>
       </ng-template>
     </mat-form-field>
 

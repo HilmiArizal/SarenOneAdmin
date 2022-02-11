@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Division } from 'src/app/interface/division';
 import { UserService } from 'src/app/service/user.service';
 import { environment } from 'src/environments/environment';
 
@@ -22,10 +23,17 @@ export class ProfileComponent implements OnInit {
   public nickname: any;
   public division: any;
 
+  divisions?: Division[] = [
+    { value: 'CEO', division: 'CEO' },
+    { value: 'Accounting', division: 'Accounting' },
+    { value: 'Marketing', division: 'Marketing' },
+    { value: 'Staff', division: 'Staff' }
+  ];
+
   constructor(
     private userService: UserService
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
     this.formProfile = new FormGroup({
       phonenumber: new FormControl('', Validators.required),
       nickname: new FormControl('', Validators.required),
@@ -61,10 +69,6 @@ export class ProfileComponent implements OnInit {
     this.nickname = e.target.value;
   }
 
-  onChangeDivision(e: any) {
-    this.division = e.target.value;
-  }
-
   onRemoveImage() {
     this.changeImage = false;
   }
@@ -76,7 +80,7 @@ export class ProfileComponent implements OnInit {
     if (!data.phonenumber || !data.nickname || !data.division) {
       let phonenumber = this.phonenumber ? parseInt(this.phonenumber) : this.user.phonenumber;
       let nickname = this.nickname ? this.nickname : this.user.nickname;
-      let division = this.division ? this.division : this.user.division;
+      let division = this.formProfile.value.division ? this.formProfile.value.division : this.user.division;
       let dataProfile = { phonenumber, nickname, division };
       this.userService.changeProfile(id, dataProfile, img).subscribe((res: any) => {
         if (res.message === "Update Data Successful") {

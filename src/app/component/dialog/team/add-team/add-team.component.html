@@ -4,62 +4,65 @@
     <mat-icon (click)="onClose()">close</mat-icon>
   </div>
 
-    <div class="title">Add Team</div>
-  
-    <form [formGroup]="formTeam">
-  
-      <div *ngIf="changeImage; else imagePreview">
-          <label>
-              <div class="image">
-                  <img [src]="previewImage" alt="img-team">
-                  <div class="icon-close">
-                      <mat-icon (click)="onRemoveImage()">close</mat-icon>
-                  </div>
-              </div>
-          </label>
-      </div>
-      <ng-template #imagePreview>
-          <label>
-              <div class="image">
-                  <img src="assets/image/no-image.png" alt="img-team">
-                  <input type="file" (change)="onChangeImage($event)">
-                  <div class="icon-camera">
-                      <mat-icon>photo_camera</mat-icon>
-                  </div>
-              </div>
-          </label>
-      </ng-template>
-  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Fullname</mat-label>
-        <input matInput formControlName="fullname">
-      </mat-form-field>
-  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nickname</mat-label>
-        <input matInput formControlName="nickname">
-      </mat-form-field>
-  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Phone Number</mat-label>
-        <span matPrefix>+62 &nbsp;</span>
-        <div>
-          <input type="number" matInput formControlName="phonenumber">
+  <div class="title">Add Team</div>
+
+  <form [formGroup]="formTeam">
+
+    <div *ngIf="changeImage; else imagePreview">
+      <label>
+        <div class="image">
+          <img [src]="previewImage" alt="img-team">
+          <div class="icon-close">
+            <mat-icon (click)="onRemoveImage()">close</mat-icon>
+          </div>
         </div>
-      </mat-form-field>
-  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Division</mat-label>
-        <input matInput formControlName="division">
-      </mat-form-field>
-  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Motto</mat-label>
-        <textarea matInput formControlName="motto"></textarea>
-      </mat-form-field>
-  
-      <button class="btn btn-success btn-sm" (click)="onAddTeam()">Save Team</button>
-    </form>
-  
-  </div>
-  
+      </label>
+    </div>
+    <ng-template #imagePreview>
+      <label>
+        <div class="image">
+          <img src="assets/image/no-image.png" alt="img-team">
+          <input type="file" (change)="onChangeImage($event)">
+          <div class="icon-camera">
+            <mat-icon>photo_camera</mat-icon>
+          </div>
+        </div>
+      </label>
+    </ng-template>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Fullname</mat-label>
+      <input matInput formControlName="fullname">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nickname</mat-label>
+      <input matInput formControlName="nickname">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <span matPrefix>+62 &nbsp;</span>
+      <div>
+        <input type="number" matInput formControlName="phonenumber">
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Division</mat-label>
+      <mat-select name="divisions" formControlName="division">
+        <mat-option *ngFor="let item of divisions" [value]="item.value">
+          {{item.division}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Motto</mat-label>
+      <textarea matInput formControlName="motto"></textarea>
+    </mat-form-field>
+
+    <button class="btn btn-success btn-sm" (click)="onAddTeam()">Save Team</button>
+  </form>
+
+</div>

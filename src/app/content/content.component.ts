@@ -21,12 +21,11 @@ export class ContentComponent implements OnInit {
     private router: Router,
     private breakpointObserver: BreakpointObserver
   ) {
-    this.API_URL = environment.API_URL.Local;
+    this.API_URL = environment.API_URL.Server;
     this.dataSource.data = TREE_DATA;
-
   }
 
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: Node, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
@@ -39,21 +38,18 @@ export class ContentComponent implements OnInit {
     this.getUser();
   }
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer, node => node.level, node => node.expandable, node => node.children);
-
+  treeControl = new FlatTreeControl<ExampleNode>(node => node.level, node => node.expandable);
+  treeFlattener = new MatTreeFlattener(this._transformer, node => node.level, node => node.expandable, node => node.children);
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: ExampleNode) => node.expandable;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+    
 
   getUser() {
     const currentUser = localStorage.getItem('currentUser');
@@ -89,13 +85,13 @@ export class ContentComponent implements OnInit {
   }
 }
 
-interface FoodNode {
+interface Node {
   name: string;
   route?: string;
-  children?: FoodNode[];
+  children?: Node[];
 };
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: Node[] = [
   {
     name: 'Stock Product',
     children: [
@@ -108,9 +104,10 @@ const TREE_DATA: FoodNode[] = [
   }
 ];
 
-interface ExampleFlatNode {
+interface ExampleNode {
   expandable: boolean;
   name: string;
   route: any;
   level: number;
 }
+

@@ -68,18 +68,23 @@
     background: none !important;
 
     .mat-tree-node:nth-child(1) {
-      margin-left:17px;
+      margin-left: 17px;
       min-height: 0px;
     }
 
-    .mat-tree-node:nth-child(2), .mat-tree-node:nth-child(3), .mat-tree-node:nth-child(4), .mat-tree-node:nth-child(5), .mat-tree-node:nth-child(6) {
-      margin-left:40px;
+    .mat-tree-node:nth-child(2),
+    .mat-tree-node:nth-child(3),
+    .mat-tree-node:nth-child(4),
+    .mat-tree-node:nth-child(5),
+    .mat-tree-node:nth-child(6) {
+      margin-left: 40px;
       min-height: 0px;
-      a{
+
+      a {
         font-size: 14px;
       }
     }
-    
+
     .mat-tree-node,
     .mat-nested-tree-node {
       font-size: 16px;
@@ -124,6 +129,12 @@
 
   .material-icons {
     color: #008080;
+  }
+
+  span {
+    color: #008080;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
   }
 }
 
